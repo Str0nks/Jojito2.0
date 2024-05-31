@@ -2,6 +2,10 @@ import discord
 from discord import ChannelType
 # local import
 import config
+import random
+
+WHITELIST = [195286013109600256, 248516720493330432]
+
 
 HATE_ID = {
     231089584128262144: '👎',
@@ -26,6 +30,13 @@ class MyClient(discord.Client):
         if message.author.id in HATE_ID:
             print(f"{message.author.name}: {HATE_ID[message.author.id]}")
             await message.add_reaction(HATE_ID[message.author.id])
+        if message.author.id != 1245830858921738280:
+            if message.author.id in WHITELIST:
+                if(random.randint(0,100)==69):
+                    await message.reply('correct')
+            if message.author.id in HATE_ID:
+                if(random.randint(0,100)==69):
+                    await message.reply('wrong')
 
 intents = discord.Intents.default()
 intents.message_content = True
