@@ -1,5 +1,7 @@
 import discord
 from discord import ChannelType
+# local import
+import config
 
 HATE_ID = {
     231089584128262144: '👎',
@@ -29,4 +31,5 @@ intents = discord.Intents.default()
 intents.message_content = True
 
 client = MyClient(intents=intents)
-client.run('')
+token = config.get_token()
+client.run(token)
