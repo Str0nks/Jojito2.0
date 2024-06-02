@@ -38,9 +38,17 @@ class MyClient(discord.Client):
                 if(random.randint(0,100)==69):
                     await message.reply('wrong')
 
-intents = discord.Intents.default()
-intents.message_content = True
+def main():
+    intents = discord.Intents.default()
+    intents.message_content = True
 
-client = MyClient(intents=intents)
-token = config.get_token()
-client.run(token)
+    client = MyClient(intents=intents)
+    token = config.get_token()
+    if token == "":
+        print("Unable to open secret file")
+        exit(1)
+
+    client.run(token)
+
+if __name__ == "__main__":
+    main()

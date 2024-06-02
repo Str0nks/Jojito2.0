@@ -3,6 +3,8 @@
 """
 
 def get_token():
-    file = open("secret", "r")
-    secret = file.readlines()[0]
-    return secret
+    with open("secret", "r") as file: 
+        secret = file.readlines()[0]
+        return secret
+
+    return ""
